@@ -6,19 +6,19 @@ function createUpdatedCollection(collectionA, objectB) {
 
 	for (var i = 0; i < collectionA.length; i++){
 		
-		var myCount = 0;	
-		for (var w = 0; w < copy.length; w++) {
-			if (collectionA[i] == copy[w]) {
-				myCount++;
-				delete copy[w];
+		var deplicatedElementCount = 0;	
+		for (var w = 0; w < remainingcollectionA.length; w++) {
+			if (collectionA[i] == remainingcollectionA[w]) {
+				deplicatedElementCount++;
+				delete remainingcollectionA[w];
 			}
 		}
 
-		if (myCount > 0) {
-			var a = new Object();
-			a.key = collectionA[i];
-			a.count = myCount;
-			collectionD.push(a);
+		if (deplicatedElementCount > 0) {
+			var keyCountObject = new Object();
+			keyCountObject.key = collectionA[i];
+			keyCountObject.count = deplicatedElementCount;
+			collectionD.push(keyCountObject);
 		}
 	}
 	

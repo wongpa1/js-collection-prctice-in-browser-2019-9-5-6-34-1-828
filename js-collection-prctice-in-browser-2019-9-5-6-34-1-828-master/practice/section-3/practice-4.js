@@ -2,31 +2,31 @@
 
 function createUpdatedCollection(collectionA, objectB) {
   	var collectionD = [];
-	var copy = collectionA.slice(0);
+	var remainingcollectionA = collectionA.slice(0);
 
 	for (var i = 0; i < collectionA.length; i++){
 		
 		 if(collectionA[i].includes('-')){
-			var myArray = collectionA[i].split("-");
-			var a = new Object();
-			a.key = myArray[0];
-			a.count = parseInt(myArray[1]);
-			collectionD.push(a);
+			var d5Array = collectionA[i].split("-");
+			var keyCountObject  = new Object();
+			keyCountObject.key = d5Array[0];
+			keyCountObject.count = parseInt(d5Array[1]);
+			collectionD.push(keyCountObject);
 		}
 		else{
-			var myCount = 0;	
-			for (var w = 0; w < copy.length; w++) {
-				if (collectionA[i] == copy[w]) {
-					myCount++;
-					delete copy[w];
+			var deplicatedElementCount = 0;	
+			for (var w = 0; w < remainingcollectionA.length; w++) {
+				if (collectionA[i] == remainingcollectionA[w]) {
+					deplicatedElementCount++;
+					delete remainingcollectionA[w];
 				}
 			}
 
-			if (myCount > 0) {
-				var b = new Object();
-				b.key = collectionA[i];
-				b.count = myCount;
-				collectionD.push(b);
+			if (deplicatedElementCount > 0) {
+				var keyCountObject = new Object();
+				keyCountObject.key = collectionA[i];
+				keyCountObject.count = deplicatedElementCount;
+				collectionD.push(keyCountObject);
 			}
 		}
 	}
